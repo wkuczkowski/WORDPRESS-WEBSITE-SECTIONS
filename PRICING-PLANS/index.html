@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cennik - Mentzen+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --bg-color: #0b253a;
+        --card-solid: #13334d;
+        --white: #ffffff;
+        --text-gray: #e0e0e0;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--white);
+      }
+
+      .pricing-section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .pricing-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-weight: 700;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .plan-card {
+        background: var(--card-solid);
+        padding: 40px 30px;
+        border-radius: 4px;
+        text-align: left;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .plan-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .plan-header {
+        text-align: center;
+      }
+
+      .plan-brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--white);
+      }
+
+      .plan-name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--white);
+      }
+
+      .plan-price {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 20px 0 5px 0;
+        color: var(--white);
+        line-height: 1.2;
+      }
+
+      .plan-price .price-suffix {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-gray);
+      }
+
+      .plan-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 30px 0;
+      }
+
+      .plan-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px 0;
+        flex-grow: 1;
+      }
+
+      .plan-features li {
+        margin-bottom: 20px;
+        padding-left: 30px;
+        position: relative;
+        line-height: 1.5;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .plan-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--white);
+        font-weight: bold;
+      }
+
+      .feature-title {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--white);
+        margin-bottom: 4px;
+        display: block;
+      }
+
+      .feature-description {
+        font-size: 0.9rem;
+        color: var(--text-gray);
+        display: block;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+        margin-top: 0;
+      }
+
+      .plan-features li:hover .feature-description {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 4px;
+      }
+
+      .plan-intro {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--text-gray);
+        margin-bottom: 30px;
+        font-style: italic;
+        font-weight: 500;
+        padding-left: 15px;
+        border-left: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: var(--white);
+        color: var(--bg-color);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        border: 2px solid var(--white);
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--white);
+      }
+
+      /* Mobile adjustment */
+      @media (max-width: 768px) {
+        .pricing-section h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="pricing-section">
+      <h2>Wybierz pakiet dla siebie</h2>
+      <div class="pricing-grid">
+        <!-- Package 1 -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <div class="plan-brand">MENTZEN+</div>
+            <div class="plan-name">PODATKI</div>
+            <div class="plan-price">
+              od 699 zł
+              <span class="price-suffix">netto / mies.</span>
+            </div>
+          </div>
+
+          <div class="plan-divider"></div>
+
+          <ul class="plan-features">
+            <li>
+              <span class="feature-title">Nielimitowane konsultacje podatkowe</span>
+              <span class="feature-description">
+                Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Szybkie, konkretne odpowiedzi mailowe</span>
+              <span class="feature-description">
+                Krótkie wskazówki, które pomagają podejmować codzienne decyzje bez ryzyka błędów.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Kompleksowa analiza podatkowa</span>
+              <span class="feature-description">
+                Sprawdzamy, jak możesz płacić mniej podatków, przygotowując symulacje oszczędności dla różnych
+                wariantów rozliczeń.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Wsparcie w założeniu jednoosobowej działalności</span>
+              <span class="feature-description">
+                Doradzamy formę opodatkowania i pomagamy w formalnościach.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Dostęp do bazy wiedzy i wzorów dokumentów</span>
+              <span class="feature-description">
+                Korzystasz z przygotowanych przez ekspertów procedur i pism.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Webinary, szkolenia i newslettery podatkowe</span>
+              <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami podatkowymi.</span>
+            </li>
+            <li>
+              <span class="feature-title">Zniżki na usługi spoza pakietu</span>
+              <span class="feature-description">Płacisz mniej za wsparcie wykraczające poza pakiet.</span>
+            </li>
+          </ul>
+
+          <div class="btn-wrapper">
+            <a href="#" class="btn">Wybieram pakiet</a>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <div class="plan-brand">MENTZEN+</div>
+            <div class="plan-name">PRAWO I PODATKI</div>
+            <div class="plan-price">
+              od 999 zł
+              <span class="price-suffix">netto / mies.</span>
+            </div>
+          </div>
+
+          <div class="plan-divider"></div>
+
+          <p class="plan-intro">
+            Pakiet Mentzen+ Prawo i Podatki zawiera wszystko to, co ma pakiet Mentzen+ Podatki oraz dodatkowo:
+          </p>
+
+          <ul class="plan-features">
+            <li>
+              <span class="feature-title">Nielimitowane konsultacje prawne</span>
+              <span class="feature-description">
+                Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Comiesięczne audyty prawne</span>
+              <span class="feature-description">
+                Regularnie sprawdzamy, czy Twoja firma działa bezpiecznie i zgodnie z przepisami.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Jedno profesjonalne wezwanie do zapłaty z faktury w miesiącu</span>
+              <span class="feature-description">
+                Zwiększasz skuteczność odzyskiwania należności bez dodatkowych kosztów.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Rozszerzony dostęp do bazy wiedzy i wzorów dokumentów</span>
+              <span class="feature-description">
+                Korzystasz z przygotowanych przez ekspertów umów, procedur i pism.
+              </span>
+            </li>
+            <li>
+              <span class="feature-title">Webinary, szkolenia i newslettery prawne</span>
+              <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami w przepisach.</span>
+            </li>
+          </ul>
+
+          <div class="btn-wrapper">
+            <a href="#" class="btn">Wybieram pakiet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
