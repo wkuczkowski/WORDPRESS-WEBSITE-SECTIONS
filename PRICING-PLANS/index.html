@@ -591,48 +591,44 @@
 
     <script>
       (function () {
-        const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const mobileQuery = window.matchMedia("(max-width: 768px)");
 
         document.querySelectorAll(".plan-features li").forEach((item) => {
-          if (isTouchDevice || isMobile) {
-            // Touch/mobile: use click to toggle
-            item.addEventListener("click", (e) => {
-              // Close other open descriptions in the same card
+          // Click handler: works on mobile, also works on desktop as fallback
+          item.addEventListener("click", () => {
+            const isMobile = mobileQuery.matches;
+
+            if (isMobile) {
+              // On mobile: toggle current, close others in same card
               const card = item.closest(".plan-card");
               card.querySelectorAll(".plan-features li.description-visible").forEach((openItem) => {
                 if (openItem !== item) {
                   openItem.classList.remove("description-visible");
                 }
               });
-              // Toggle current item
               item.classList.toggle("description-visible");
-            });
-          } else {
-            // Desktop: use hover
-            item.addEventListener("mouseenter", () => {
-              item.classList.add("description-visible");
-            });
+            }
+          });
 
-            item.addEventListener("mouseleave", () => {
+          // Hover handlers: only effective on desktop (CSS disables hover effect on mobile)
+          item.addEventListener("mouseenter", () => {
+            if (!mobileQuery.matches) {
+              item.classList.add("description-visible");
+            }
+          });
+
+          item.addEventListener("mouseleave", () => {
+            if (!mobileQuery.matches) {
               item.classList.remove("description-visible");
-            });
-          }
+            }
+          });
         });
 
-        // Handle window resize: re-evaluate on orientation change
-        let wasTouch = isTouchDevice || isMobile;
-        window.addEventListener("resize", () => {
-          const nowMobile = window.matchMedia("(max-width: 768px)").matches;
-          const nowTouch = isTouchDevice || nowMobile;
-
-          // Close all descriptions on mode change
-          if (wasTouch !== nowTouch) {
-            document.querySelectorAll(".plan-features li.description-visible").forEach((item) => {
-              item.classList.remove("description-visible");
-            });
-            wasTouch = nowTouch;
-          }
+        // Close all descriptions when switching between mobile/desktop modes
+        mobileQuery.addEventListener("change", () => {
+          document.querySelectorAll(".plan-features li.description-visible").forEach((item) => {
+            item.classList.remove("description-visible");
+          });
         });
       })();
     </script>
