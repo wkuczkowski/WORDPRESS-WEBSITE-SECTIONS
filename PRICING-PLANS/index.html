@@ -51,15 +51,15 @@
         border-radius: 4px;
         text-align: left;
         position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: transform 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
       }
 
       .plan-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
       }
 
       .plan-header {
@@ -67,7 +67,7 @@
       }
 
       .plan-brand {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 700;
         margin-bottom: 5px;
         text-transform: uppercase;
@@ -76,7 +76,7 @@
       }
 
       .plan-name {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
         font-weight: 700;
         margin-bottom: 15px;
         text-transform: uppercase;
@@ -112,18 +112,22 @@
       }
 
       .plan-features li {
-        margin-bottom: 20px;
-        padding-left: 30px;
+        padding: 8px 15px 8px 30px;
         position: relative;
         line-height: 1.5;
         cursor: pointer;
         transition: all 0.3s ease;
+        border-radius: 4px;
+      }
+
+      .plan-features li:hover {
+        background-color: rgba(255, 255, 255, 0.05);
       }
 
       .plan-features li::before {
         content: "✓";
         position: absolute;
-        left: 0;
+        left: 5px;
         color: var(--white);
         font-weight: bold;
       }
@@ -147,7 +151,7 @@
         margin-top: 0;
       }
 
-      .plan-features li:hover .feature-description {
+      .plan-features li.description-visible .feature-description {
         max-height: 200px;
         opacity: 1;
         margin-top: 4px;
@@ -180,12 +184,12 @@
         font-weight: 700;
         text-transform: uppercase;
         border: 2px solid var(--white);
-        transition: all 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
       }
 
       .btn:hover {
-        background: transparent;
-        color: var(--white);
+        background: #e8e8e8;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
       }
 
       /* Mobile adjustment */
@@ -314,5 +318,28 @@
         </div>
       </div>
     </section>
+
+    <script>
+      document.querySelectorAll(".plan-features li").forEach((item) => {
+        let hideTimeout = null;
+
+        item.addEventListener("mouseenter", () => {
+          // Clear any pending hide timeout
+          if (hideTimeout) {
+            clearTimeout(hideTimeout);
+            hideTimeout = null;
+          }
+          // Show description
+          item.classList.add("description-visible");
+        });
+
+        item.addEventListener("mouseleave", () => {
+          // Hide after 10 seconds
+          hideTimeout = setTimeout(() => {
+            item.classList.remove("description-visible");
+          }, 3000);
+        });
+      });
+    </script>
   </body>
 </html>
