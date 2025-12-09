@@ -26,28 +26,28 @@
       }
 
       .pricing-section {
-        padding: 80px 20px;
-        max-width: 1200px;
+        padding: 72px 18px;
+        max-width: 1080px;
         margin: 0 auto;
         text-align: center;
       }
 
       .pricing-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 50px;
+        font-size: 2.25rem;
+        margin-bottom: 45px;
         font-weight: 700;
       }
 
       .pricing-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+        gap: 27px;
         justify-content: center;
       }
 
       .plan-card {
         background: var(--card-solid);
-        padding: 40px 30px;
+        padding: 36px 27px;
         border-radius: 4px;
         text-align: left;
         position: relative;
@@ -67,33 +67,33 @@
       }
 
       .plan-brand {
-        font-size: 1.3rem;
+        font-size: 1.17rem;
+        margin-bottom: -4.5px;
         font-weight: 700;
-        margin-bottom: 5px;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: var(--white);
       }
 
       .plan-name {
-        font-size: 2.6rem;
+        font-size: 2.34rem;
         font-weight: 700;
-        margin-bottom: 15px;
+        margin-bottom: 13.5px;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: var(--white);
       }
 
       .plan-price {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 700;
-        margin: 20px 0 5px 0;
+        margin: 18px 0 4.5px 0;
         color: var(--white);
         line-height: 1.2;
       }
 
       .plan-price .price-suffix {
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 400;
         color: var(--text-gray);
       }
@@ -101,18 +101,18 @@
       .plan-divider {
         height: 1px;
         background: rgba(255, 255, 255, 0.1);
-        margin: 30px 0;
+        margin: 27px 0;
       }
 
       .plan-features {
         list-style: none;
         padding: 0;
-        margin: 0 0 40px 0;
+        margin: 0 0 36px 0;
         flex-grow: 1;
       }
 
       .plan-features li {
-        padding: 8px 15px 8px 30px;
+        padding: 7px 13.5px 7px 27px;
         position: relative;
         line-height: 1.5;
         cursor: pointer;
@@ -127,21 +127,21 @@
       .plan-features li::before {
         content: "✓";
         position: absolute;
-        left: 5px;
+        left: 4.5px;
         color: var(--white);
         font-weight: bold;
       }
 
       .feature-title {
-        font-weight: 700;
-        font-size: 1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
         color: var(--white);
-        margin-bottom: 4px;
+        margin-bottom: 3.6px;
         display: block;
       }
 
       .feature-description {
-        font-size: 0.9rem;
+        font-size: 0.81rem;
         color: var(--text-gray);
         display: block;
         max-height: 0;
@@ -152,19 +152,47 @@
       }
 
       .plan-features li.description-visible .feature-description {
-        max-height: 200px;
+        max-height: 180px;
         opacity: 1;
-        margin-top: 4px;
+        margin-top: 3.6px;
+      }
+
+      /* Info icon styles */
+      .info-icon {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        margin-left: 6px;
+        vertical-align: middle;
+        opacity: 0.6;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .info-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .plan-features li .info-icon:hover {
+        opacity: 1;
+      }
+
+      .plan-features li.description-visible .info-icon {
+        opacity: 1;
+        transform: rotate(180deg);
       }
 
       .plan-intro {
-        font-size: 0.9rem;
+        font-size: 0.81rem;
         line-height: 1.5;
         color: var(--text-gray);
-        margin-bottom: 30px;
+        margin-bottom: 27px;
         font-style: italic;
         font-weight: 500;
-        padding-left: 15px;
+        padding-left: 13.5px;
         border-left: 2px solid rgba(255, 255, 255, 0.3);
       }
 
@@ -176,7 +204,7 @@
       .btn {
         display: block;
         width: 100%;
-        padding: 15px;
+        padding: 13.5px;
         background: var(--white);
         color: var(--bg-color);
         text-align: center;
@@ -195,7 +223,57 @@
       /* Mobile adjustment */
       @media (max-width: 768px) {
         .pricing-section h2 {
-          font-size: 2rem;
+          font-size: 1.8rem;
+        }
+
+        .pricing-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .plan-card {
+          padding: 27px 18px;
+        }
+
+        /* Show info icon on mobile */
+        .info-icon {
+          display: inline-flex;
+        }
+
+        /* Feature title layout for mobile */
+        .feature-title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        /* Disable hover effect on mobile - use tap instead */
+        .plan-features li:hover {
+          background-color: transparent;
+        }
+
+        .plan-features li:hover .feature-description {
+          max-height: 0;
+          opacity: 0;
+          margin-top: 0;
+        }
+
+        /* Only show description when explicitly toggled */
+        .plan-features li.description-visible:hover .feature-description,
+        .plan-features li.description-visible .feature-description {
+          max-height: 180px;
+          opacity: 1;
+          margin-top: 3.6px;
+        }
+
+        /* Improve tap target size */
+        .plan-features li {
+          padding: 12px 13.5px 12px 27px;
+        }
+
+        .btn {
+          padding: 16px;
+          font-size: 0.95rem;
         }
       }
     </style>
@@ -219,42 +297,154 @@
 
           <ul class="plan-features">
             <li>
-              <span class="feature-title">Nielimitowane konsultacje podatkowe</span>
+              <span class="feature-title">
+                Nielimitowane konsultacje podatkowe
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
               </span>
             </li>
             <li>
-              <span class="feature-title">Szybkie, konkretne odpowiedzi mailowe</span>
+              <span class="feature-title">
+                Szybkie, konkretne odpowiedzi mailowe
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Krótkie wskazówki, które pomagają podejmować codzienne decyzje bez ryzyka błędów.
               </span>
             </li>
             <li>
-              <span class="feature-title">Kompleksowa analiza podatkowa</span>
+              <span class="feature-title">
+                Kompleksowa analiza podatkowa
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Sprawdzamy, jak możesz płacić mniej podatków, przygotowując symulacje oszczędności dla różnych
                 wariantów rozliczeń.
               </span>
             </li>
             <li>
-              <span class="feature-title">Wsparcie w założeniu jednoosobowej działalności</span>
+              <span class="feature-title">
+                Wsparcie w założeniu jednoosobowej działalności
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Doradzamy formę opodatkowania i pomagamy w formalnościach.
               </span>
             </li>
             <li>
-              <span class="feature-title">Dostęp do bazy wiedzy i wzorów dokumentów</span>
+              <span class="feature-title">
+                Dostęp do bazy wiedzy i wzorów dokumentów
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Korzystasz z przygotowanych przez ekspertów procedur i pism.
               </span>
             </li>
             <li>
-              <span class="feature-title">Webinary, szkolenia i newslettery podatkowe</span>
+              <span class="feature-title">
+                Webinary, szkolenia i newslettery podatkowe
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami podatkowymi.</span>
             </li>
             <li>
-              <span class="feature-title">Zniżki na usługi spoza pakietu</span>
+              <span class="feature-title">
+                Zniżki na usługi spoza pakietu
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">Płacisz mniej za wsparcie wykraczające poza pakiet.</span>
             </li>
           </ul>
@@ -283,31 +473,111 @@
 
           <ul class="plan-features">
             <li>
-              <span class="feature-title">Nielimitowane konsultacje prawne</span>
+              <span class="feature-title">
+                Nielimitowane konsultacje prawne
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
               </span>
             </li>
             <li>
-              <span class="feature-title">Comiesięczne audyty prawne</span>
+              <span class="feature-title">
+                Comiesięczne audyty prawne
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Regularnie sprawdzamy, czy Twoja firma działa bezpiecznie i zgodnie z przepisami.
               </span>
             </li>
             <li>
-              <span class="feature-title">Jedno profesjonalne wezwanie do zapłaty z faktury w miesiącu</span>
+              <span class="feature-title">
+                Jedno profesjonalne wezwanie do zapłaty z faktury w miesiącu
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Zwiększasz skuteczność odzyskiwania należności bez dodatkowych kosztów.
               </span>
             </li>
             <li>
-              <span class="feature-title">Rozszerzony dostęp do bazy wiedzy i wzorów dokumentów</span>
+              <span class="feature-title">
+                Rozszerzony dostęp do bazy wiedzy i wzorów dokumentów
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">
                 Korzystasz z przygotowanych przez ekspertów umów, procedur i pism.
               </span>
             </li>
             <li>
-              <span class="feature-title">Webinary, szkolenia i newslettery prawne</span>
+              <span class="feature-title">
+                Webinary, szkolenia i newslettery prawne
+                <span class="info-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </span>
+              </span>
               <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami w przepisach.</span>
             </li>
           </ul>
@@ -320,26 +590,51 @@
     </section>
 
     <script>
-      document.querySelectorAll(".plan-features li").forEach((item) => {
-        let hideTimeout = null;
+      (function () {
+        const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-        item.addEventListener("mouseenter", () => {
-          // Clear any pending hide timeout
-          if (hideTimeout) {
-            clearTimeout(hideTimeout);
-            hideTimeout = null;
+        document.querySelectorAll(".plan-features li").forEach((item) => {
+          if (isTouchDevice || isMobile) {
+            // Touch/mobile: use click to toggle
+            item.addEventListener("click", (e) => {
+              // Close other open descriptions in the same card
+              const card = item.closest(".plan-card");
+              card.querySelectorAll(".plan-features li.description-visible").forEach((openItem) => {
+                if (openItem !== item) {
+                  openItem.classList.remove("description-visible");
+                }
+              });
+              // Toggle current item
+              item.classList.toggle("description-visible");
+            });
+          } else {
+            // Desktop: use hover
+            item.addEventListener("mouseenter", () => {
+              item.classList.add("description-visible");
+            });
+
+            item.addEventListener("mouseleave", () => {
+              item.classList.remove("description-visible");
+            });
           }
-          // Show description
-          item.classList.add("description-visible");
         });
 
-        item.addEventListener("mouseleave", () => {
-          // Hide after 10 seconds
-          hideTimeout = setTimeout(() => {
-            item.classList.remove("description-visible");
-          }, 200);
+        // Handle window resize: re-evaluate on orientation change
+        let wasTouch = isTouchDevice || isMobile;
+        window.addEventListener("resize", () => {
+          const nowMobile = window.matchMedia("(max-width: 768px)").matches;
+          const nowTouch = isTouchDevice || nowMobile;
+
+          // Close all descriptions on mode change
+          if (wasTouch !== nowTouch) {
+            document.querySelectorAll(".plan-features li.description-visible").forEach((item) => {
+              item.classList.remove("description-visible");
+            });
+            wasTouch = nowTouch;
+          }
         });
-      });
+      })();
     </script>
   </body>
 </html>
