@@ -82,19 +82,10 @@
       }
 
       .mentzen-pricing-wrapper .pricing-section {
-        padding: 72px 18px;
+        padding: 30px 18px;
         max-width: 1080px;
         margin: 0 auto;
         text-align: center;
-      }
-
-      .mentzen-pricing-wrapper .pricing-section h2 {
-        font-size: 2.25rem;
-        margin-bottom: 45px;
-        font-weight: 700;
-        color: var(--white);
-        padding-bottom: 0;
-        line-height: 1.2;
       }
 
       .mentzen-pricing-wrapper .pricing-grid {
@@ -107,7 +98,6 @@
       .mentzen-pricing-wrapper .plan-card {
         background: var(--card-solid);
         padding: 36px 27px;
-        border-radius: 4px;
         text-align: left;
         position: relative;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -155,13 +145,13 @@
 
       .mentzen-pricing-wrapper .plan-price .price-suffix {
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: 600;
         color: var(--text-gray);
       }
 
       .mentzen-pricing-wrapper .plan-price .price-prefix {
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: 600;
         color: var(--text-gray);
       }
 
@@ -259,7 +249,7 @@
         font-size: 0.81rem;
         line-height: 1.5;
         color: var(--text-gray);
-        margin-bottom: 27px;
+        margin-bottom: 15px;
         font-style: italic;
         font-weight: 500;
         padding-left: 13.5px;
@@ -375,12 +365,200 @@
           padding-bottom: 30px;
         }
       }
+
+      /* ==================== MODAL STYLES ==================== */
+
+      /* Modal Overlay */
+      .pricing-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2147483647;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E")
+            12 12,
+          pointer;
+        padding: 20px;
+      }
+
+      .pricing-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Prevent body scroll when modal is open */
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      /* Modal Content Container */
+      .pricing-modal-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1150px;
+        width: 100%;
+        cursor: default;
+      }
+
+      /* Modal Tier Card */
+      .modal-tier-card {
+        background: var(--card-solid);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px 25px;
+        text-align: center;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        animation: modalCardSlideIn 0.4s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .modal-tier-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .modal-tier-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .modal-tier-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes modalCardSlideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-tier-card:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+        transform: translateY(-5px);
+      }
+
+      /* Modal Tier Label (PAKIET) */
+      .modal-tier-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--text-gray);
+        margin-bottom: 0;
+        text-transform: uppercase;
+      }
+
+      /* Modal Tier Name */
+      .modal-tier-name {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--white);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+
+      /* Modal Tier Description */
+      .modal-tier-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--text-gray);
+        margin-bottom: 20px;
+        min-height: 50px;
+      }
+
+      /* Modal Tier Price */
+      .modal-tier-price {
+        margin-bottom: 20px;
+        line-height: 1;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+      }
+
+      .modal-price-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .modal-price-suffix {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-left: 2px;
+        align-self: flex-end;
+        margin-bottom: 4px;
+      }
+
+      /* Modal Tier Button */
+      .modal-tier-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--white);
+        color: var(--bg-color);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid var(--white);
+        border-radius: 20px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .modal-tier-btn:hover {
+        background: #e8e8e8;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Modal Responsive - Tablet */
+      @media (max-width: 900px) {
+        .pricing-modal-content {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 15px;
+        }
+
+        .modal-tier-card {
+          padding: 25px 15px;
+        }
+
+        .modal-tier-name {
+          font-size: 1.6rem;
+        }
+
+        .modal-price-value {
+          font-size: 2rem;
+        }
+      }
+
+      /* Modal Responsive - Mobile */
+      @media (max-width: 700px) {
+        .pricing-modal-content {
+          grid-template-columns: 1fr;
+          max-width: 350px;
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+
+        .modal-tier-description {
+          min-height: auto;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="mentzen-pricing-wrapper">
+    <div class="mentzen-pricing-wrapper" id="pakiety">
       <section class="pricing-section">
-        <h2>Wybierz pakiet dla siebie</h2>
         <div class="pricing-grid">
           <!-- Package 1 -->
           <div class="plan-card" id="plan-podatki">
@@ -551,7 +729,15 @@
             </ul>
 
             <div class="btn-wrapper">
-              <a href="#" class="btn">Wybieram pakiet</a>
+              <a
+                href="#"
+                class="btn"
+                id="btn-pakiet-podatki"
+                data-ga-action="select_package"
+                data-ga-category="pricing"
+                data-ga-label="podatki">
+                Wybieram pakiet
+              </a>
             </div>
           </div>
 
@@ -686,11 +872,87 @@
             </ul>
 
             <div class="btn-wrapper">
-              <a href="#" class="btn">Wybieram pakiet</a>
+              <a
+                href="#"
+                class="btn"
+                id="btn-pakiet-prawo-podatki"
+                data-ga-action="select_package"
+                data-ga-category="pricing"
+                data-ga-label="prawo-podatki">
+                Wybieram pakiet
+              </a>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Pricing Tier Modal -->
+      <div class="pricing-modal-overlay" id="pricingModal">
+        <div class="pricing-modal-content">
+          <!-- Standard Tier -->
+          <div class="modal-tier-card">
+            <div class="modal-tier-label">PAKIET</div>
+            <div class="modal-tier-name">STANDARD</div>
+            <p class="modal-tier-description">
+              Wybierz, gdy osiągasz przychody do 1 mln złotych w skali roku.
+            </p>
+            <div class="modal-tier-price">
+              <span class="modal-price-value" data-podatki="699" data-prawo="999">699</span>
+              <span class="modal-price-suffix">zł netto</span>
+            </div>
+            <a
+              href="#"
+              class="modal-tier-btn"
+              data-tier="standard"
+              data-ga-action="purchase_click"
+              data-ga-category="pricing">
+              Wybieram pakiet
+            </a>
+          </div>
+
+          <!-- Premium Tier -->
+          <div class="modal-tier-card">
+            <div class="modal-tier-label">PAKIET</div>
+            <div class="modal-tier-name">PREMIUM</div>
+            <p class="modal-tier-description">
+              Wybierz, gdy osiągasz przychody do 10 mln złotych w skali roku.
+            </p>
+            <div class="modal-tier-price">
+              <span class="modal-price-value" data-podatki="1299" data-prawo="1899">1299</span>
+              <span class="modal-price-suffix">zł netto</span>
+            </div>
+            <a
+              href="#"
+              class="modal-tier-btn"
+              data-tier="premium"
+              data-ga-action="purchase_click"
+              data-ga-category="pricing">
+              Wybieram pakiet
+            </a>
+          </div>
+
+          <!-- PRO Tier -->
+          <div class="modal-tier-card">
+            <div class="modal-tier-label">PAKIET</div>
+            <div class="modal-tier-name">PRO</div>
+            <p class="modal-tier-description">
+              Wybierz, gdy osiągasz przychody powyżej 10 mln złotych w skali roku.
+            </p>
+            <div class="modal-tier-price">
+              <span class="modal-price-value" data-podatki="2499" data-prawo="3199">2499</span>
+              <span class="modal-price-suffix">zł netto</span>
+            </div>
+            <a
+              href="#"
+              class="modal-tier-btn"
+              data-tier="pro"
+              data-ga-action="purchase_click"
+              data-ga-category="pricing">
+              Wybieram pakiet
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -735,6 +997,126 @@
             .forEach((item) => {
               item.classList.remove("description-visible");
             });
+        });
+
+        // ==================== MODAL FUNCTIONALITY ====================
+
+        const modal = document.getElementById("pricingModal");
+        const modalContent = modal.querySelector(".pricing-modal-content");
+        const priceValues = modal.querySelectorAll(".modal-price-value");
+        const tierButtons = modal.querySelectorAll(".modal-tier-btn");
+        const originalModalParent = modal.parentElement; // Store original location for portal pattern
+
+        // Subscription URLs
+        const subscriptionUrls = {
+          podatki: {
+            standard: "https://subskrypcje.mentzen.pl/subscription/432",
+            premium: "https://subskrypcje.mentzen.pl/subscription/433",
+            pro: "https://subskrypcje.mentzen.pl/subscription/434",
+          },
+          prawo: {
+            standard: "https://subskrypcje.mentzen.pl/subscription/435",
+            premium: "https://subskrypcje.mentzen.pl/subscription/436",
+            pro: "https://subskrypcje.mentzen.pl/subscription/437",
+          },
+        };
+
+        let currentPackageType = "podatki";
+
+        // Open modal function
+        function openModal(packageType) {
+          currentPackageType = packageType;
+
+          // Portal pattern: Move modal to body to escape stacking context
+          document.body.appendChild(modal);
+
+          // Set dynamic IDs for GA4 tracking
+          const packageSlug = packageType === "podatki" ? "podatki" : "prawo-podatki";
+          tierButtons.forEach((btn) => {
+            const tier = btn.dataset.tier;
+            btn.id = `btn-pakiet-${packageSlug}-tier-${tier}`;
+          });
+
+          // Update prices based on package type
+          priceValues.forEach((priceEl) => {
+            const price = packageType === "podatki" ? priceEl.dataset.podatki : priceEl.dataset.prawo;
+            priceEl.textContent = price;
+          });
+
+          // Update subscription URLs
+          tierButtons.forEach((btn) => {
+            const tier = btn.dataset.tier;
+            btn.href = subscriptionUrls[packageType][tier];
+          });
+
+          // Reset card animations
+          modal.querySelectorAll(".modal-tier-card").forEach((card) => {
+            card.style.animation = "none";
+            card.offsetHeight; // Trigger reflow
+            card.style.animation = null;
+          });
+
+          modal.classList.add("active");
+          document.body.classList.add("modal-open");
+        }
+
+        // Close modal function
+        function closeModal() {
+          modal.classList.remove("active");
+          document.body.classList.remove("modal-open");
+
+          // Portal pattern: Move modal back to original location
+          originalModalParent.appendChild(modal);
+        }
+
+        // Add click handlers to "Wybieram pakiet" buttons on main cards
+        document.querySelectorAll(".mentzen-pricing-wrapper .plan-card .btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const card = btn.closest(".plan-card");
+            const packageType = card.id === "plan-podatki" ? "podatki" : "prawo";
+
+            // Push to dataLayer for GA4 tracking
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "select_package",
+              package_type: btn.id.replace("btn-pakiet-", ""),
+            });
+
+            openModal(packageType);
+          });
+        });
+
+        // Add click handlers for modal tier buttons (GA4 tracking)
+        tierButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "begin_checkout",
+              package_type: currentPackageType,
+              tier: this.dataset.tier,
+              price: this.closest(".modal-tier-card").querySelector(".modal-price-value").textContent,
+            });
+          });
+        });
+
+        // Close modal when clicking overlay (outside content)
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        // Prevent closing when clicking inside modal content
+        modalContent.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+
+        // Close modal with Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+          }
         });
       })();
     </script>
