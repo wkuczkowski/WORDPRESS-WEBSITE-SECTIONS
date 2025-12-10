@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
     <style>
       :root {
@@ -17,35 +17,94 @@
         --text-gray: #e0e0e0;
       }
 
-      body {
+      /* WordPress Override Resets */
+      .mentzen-pricing-wrapper,
+      .mentzen-pricing-wrapper *,
+      .mentzen-pricing-wrapper *::before,
+      .mentzen-pricing-wrapper *::after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: transparent;
+      }
+
+      .mentzen-pricing-wrapper h1,
+      .mentzen-pricing-wrapper h2,
+      .mentzen-pricing-wrapper h3,
+      .mentzen-pricing-wrapper h4,
+      .mentzen-pricing-wrapper h5,
+      .mentzen-pricing-wrapper h6 {
+        color: var(--white);
+        padding-bottom: 0;
+        line-height: 1.2;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .mentzen-pricing-wrapper ul,
+      .mentzen-pricing-wrapper li {
         margin: 0;
         padding: 0;
-        font-family: "Montserrat", sans-serif;
+        list-style: none;
+        border: 0;
+        outline: 0;
+        background: transparent;
+      }
+
+      .mentzen-pricing-wrapper a {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .mentzen-pricing-wrapper p,
+      .mentzen-pricing-wrapper div,
+      .mentzen-pricing-wrapper span,
+      .mentzen-pricing-wrapper section {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+      }
+
+      /* Main Wrapper */
+      .mentzen-pricing-wrapper {
+        margin: 0;
+        padding: 0;
+        font-family: "InstrumentSans", Helvetica, Arial, Lucida, sans-serif;
         background-color: var(--bg-color);
         color: var(--white);
       }
 
-      .pricing-section {
+      .mentzen-pricing-wrapper .pricing-section {
         padding: 72px 18px;
         max-width: 1080px;
         margin: 0 auto;
         text-align: center;
       }
 
-      .pricing-section h2 {
+      .mentzen-pricing-wrapper .pricing-section h2 {
         font-size: 2.25rem;
         margin-bottom: 45px;
         font-weight: 700;
+        color: var(--white);
+        padding-bottom: 0;
+        line-height: 1.2;
       }
 
-      .pricing-grid {
+      .mentzen-pricing-wrapper .pricing-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
         gap: 27px;
         justify-content: center;
       }
 
-      .plan-card {
+      .mentzen-pricing-wrapper .plan-card {
         background: var(--card-solid);
         padding: 36px 27px;
         border-radius: 4px;
@@ -57,16 +116,16 @@
         flex-direction: column;
       }
 
-      .plan-card:hover {
+      .mentzen-pricing-wrapper .plan-card:hover {
         border-color: rgba(255, 255, 255, 0.3);
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
       }
 
-      .plan-header {
+      .mentzen-pricing-wrapper .plan-header {
         text-align: center;
       }
 
-      .plan-brand {
+      .mentzen-pricing-wrapper .plan-brand {
         font-size: 1.17rem;
         margin-bottom: -4.5px;
         font-weight: 700;
@@ -75,56 +134,67 @@
         color: var(--white);
       }
 
-      .plan-name {
+      .mentzen-pricing-wrapper .plan-name {
         font-size: 2.34rem;
         font-weight: 700;
-        margin-bottom: 13.5px;
+        margin-bottom: 8px;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
         color: var(--white);
+        padding-bottom: 0;
+        line-height: 1.2;
       }
 
-      .plan-price {
+      .mentzen-pricing-wrapper .plan-price {
         font-size: 1.8rem;
-        font-weight: 700;
-        margin: 18px 0 4.5px 0;
+        font-weight: 600;
+        margin: 8px 0 4.5px 0;
         color: var(--white);
         line-height: 1.2;
       }
 
-      .plan-price .price-suffix {
-        font-size: 0.9rem;
+      .mentzen-pricing-wrapper .plan-price .price-suffix {
+        font-size: 1rem;
         font-weight: 400;
         color: var(--text-gray);
       }
 
-      .plan-divider {
+      .mentzen-pricing-wrapper .plan-price .price-prefix {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-gray);
+      }
+
+      .mentzen-pricing-wrapper .plan-divider {
         height: 1px;
         background: rgba(255, 255, 255, 0.1);
         margin: 27px 0;
       }
 
-      .plan-features {
+      .mentzen-pricing-wrapper .plan-features {
         list-style: none;
         padding: 0;
-        margin: 0 0 36px 0;
         flex-grow: 1;
+        min-height: 260px;
       }
 
-      .plan-features li {
+      .mentzen-pricing-wrapper .plan-features li {
         padding: 7px 13.5px 7px 27px;
         position: relative;
         line-height: 1.5;
         cursor: pointer;
         transition: all 0.3s ease;
         border-radius: 4px;
+        margin: 0;
+        border: 0;
+        background: transparent;
       }
 
-      .plan-features li:hover {
+      .mentzen-pricing-wrapper .plan-features li:hover {
         background-color: rgba(255, 255, 255, 0.05);
       }
 
-      .plan-features li::before {
+      .mentzen-pricing-wrapper .plan-features li::before {
         content: "✓";
         position: absolute;
         left: 4.5px;
@@ -132,7 +202,7 @@
         font-weight: bold;
       }
 
-      .feature-title {
+      .mentzen-pricing-wrapper .feature-title {
         font-weight: 600;
         font-size: 0.9rem;
         color: var(--white);
@@ -140,7 +210,7 @@
         display: block;
       }
 
-      .feature-description {
+      .mentzen-pricing-wrapper .feature-description {
         font-size: 0.81rem;
         color: var(--text-gray);
         display: block;
@@ -151,14 +221,14 @@
         margin-top: 0;
       }
 
-      .plan-features li.description-visible .feature-description {
+      .mentzen-pricing-wrapper .plan-features li.description-visible .feature-description {
         max-height: 180px;
         opacity: 1;
         margin-top: 3.6px;
       }
 
       /* Info icon styles */
-      .info-icon {
+      .mentzen-pricing-wrapper .info-icon {
         display: none;
         align-items: center;
         justify-content: center;
@@ -171,21 +241,21 @@
         flex-shrink: 0;
       }
 
-      .info-icon svg {
+      .mentzen-pricing-wrapper .info-icon svg {
         width: 100%;
         height: 100%;
       }
 
-      .plan-features li .info-icon:hover {
+      .mentzen-pricing-wrapper .plan-features li .info-icon:hover {
         opacity: 1;
       }
 
-      .plan-features li.description-visible .info-icon {
+      .mentzen-pricing-wrapper .plan-features li.description-visible .info-icon {
         opacity: 1;
         transform: rotate(180deg);
       }
 
-      .plan-intro {
+      .mentzen-pricing-wrapper .plan-intro {
         font-size: 0.81rem;
         line-height: 1.5;
         color: var(--text-gray);
@@ -196,12 +266,12 @@
         border-left: 2px solid rgba(255, 255, 255, 0.3);
       }
 
-      .btn-wrapper {
+      .mentzen-pricing-wrapper .btn-wrapper {
         display: flex;
         justify-content: center;
       }
 
-      .btn {
+      .mentzen-pricing-wrapper .btn {
         display: block;
         width: 100%;
         padding: 13.5px;
@@ -215,385 +285,419 @@
         transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .btn:hover {
+      .mentzen-pricing-wrapper .btn:hover {
         background: #e8e8e8;
         box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
       }
 
+      /* Screens smaller than 836px */
+      @media (max-width: 835px) {
+        .mentzen-pricing-wrapper .plan-features {
+          min-height: 300px;
+        }
+      }
+
       /* Mobile adjustment */
       @media (max-width: 768px) {
-        .pricing-section h2 {
+        .mentzen-pricing-wrapper .pricing-section h2 {
           font-size: 1.8rem;
         }
 
-        .pricing-grid {
+        .mentzen-pricing-wrapper .pricing-grid {
           grid-template-columns: 1fr;
           gap: 18px;
         }
 
-        .plan-card {
+        .mentzen-pricing-wrapper .plan-card {
           padding: 27px 18px;
         }
 
         /* Show info icon on mobile */
-        .info-icon {
+        .mentzen-pricing-wrapper .info-icon {
           display: inline-flex;
         }
 
         /* Feature title layout for mobile */
-        .feature-title {
+        .mentzen-pricing-wrapper .feature-title {
           display: flex;
           align-items: center;
           justify-content: space-between;
         }
 
         /* Disable hover effect on mobile - use tap instead */
-        .plan-features li:hover {
+        .mentzen-pricing-wrapper .plan-features li:hover {
           background-color: transparent;
         }
 
-        .plan-features li:hover .feature-description {
+        .mentzen-pricing-wrapper .plan-features li:hover .feature-description {
           max-height: 0;
           opacity: 0;
           margin-top: 0;
         }
 
         /* Only show description when explicitly toggled */
-        .plan-features li.description-visible:hover .feature-description,
-        .plan-features li.description-visible .feature-description {
+        .mentzen-pricing-wrapper .plan-features li.description-visible:hover .feature-description,
+        .mentzen-pricing-wrapper .plan-features li.description-visible .feature-description {
           max-height: 180px;
           opacity: 1;
           margin-top: 3.6px;
         }
 
         /* Improve tap target size */
-        .plan-features li {
+        .mentzen-pricing-wrapper .plan-features li {
           padding: 12px 13.5px 12px 27px;
         }
 
-        .btn {
+        .mentzen-pricing-wrapper .btn {
           padding: 16px;
           font-size: 0.95rem;
+        }
+
+        .mentzen-pricing-wrapper #plan-podatki .plan-features {
+          min-height: 390px;
+        }
+
+        .mentzen-pricing-wrapper #plan-prawo-podatki .plan-features {
+          min-height: 300px;
+        }
+      }
+
+      /* Screens smaller than 575px */
+      @media (max-width: 575px) {
+        .mentzen-pricing-wrapper #plan-prawo-podatki .plan-features {
+          min-height: 330px;
+        }
+      }
+
+      /* Screens smaller than 484px */
+      @media (max-width: 484px) {
+        .mentzen-pricing-wrapper .plan-features {
+          padding-bottom: 30px;
         }
       }
     </style>
   </head>
   <body>
-    <section class="pricing-section">
-      <h2>Wybierz pakiet dla siebie</h2>
-      <div class="pricing-grid">
-        <!-- Package 1 -->
-        <div class="plan-card">
-          <div class="plan-header">
-            <div class="plan-brand">MENTZEN+</div>
-            <div class="plan-name">PODATKI</div>
-            <div class="plan-price">
-              od 699 zł
-              <span class="price-suffix">netto / mies.</span>
+    <div class="mentzen-pricing-wrapper">
+      <section class="pricing-section">
+        <h2>Wybierz pakiet dla siebie</h2>
+        <div class="pricing-grid">
+          <!-- Package 1 -->
+          <div class="plan-card" id="plan-podatki">
+            <div class="plan-header">
+              <div class="plan-brand">MENTZEN+</div>
+              <div class="plan-name">PODATKI</div>
+              <div class="plan-price">
+                <span class="price-prefix">od</span>
+                699 zł
+                <span class="price-suffix">netto / mies.</span>
+              </div>
+            </div>
+
+            <div class="plan-divider"></div>
+
+            <ul class="plan-features">
+              <li>
+                <span class="feature-title">
+                  Nielimitowane konsultacje podatkowe
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Szybkie, konkretne odpowiedzi mailowe
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Krótkie wskazówki, które pomagają podejmować codzienne decyzje bez ryzyka błędów.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Kompleksowa analiza podatkowa
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Sprawdzamy, jak możesz płacić mniej podatków, przygotowując symulacje oszczędności dla
+                  różnych wariantów rozliczeń.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Wsparcie w założeniu jednoosobowej działalności
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Doradzamy formę opodatkowania i pomagamy w formalnościach.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Dostęp do bazy wiedzy i wzorów dokumentów
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Korzystasz z przygotowanych przez ekspertów procedur i pism.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Webinary, szkolenia i newslettery podatkowe
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami podatkowymi.</span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Zniżki na usługi spoza pakietu
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">Płacisz mniej za wsparcie wykraczające poza pakiet.</span>
+              </li>
+            </ul>
+
+            <div class="btn-wrapper">
+              <a href="#" class="btn">Wybieram pakiet</a>
             </div>
           </div>
 
-          <div class="plan-divider"></div>
+          <!-- Package 2 -->
+          <div class="plan-card" id="plan-prawo-podatki">
+            <div class="plan-header">
+              <div class="plan-brand">MENTZEN+</div>
+              <div class="plan-name">PRAWO I PODATKI</div>
+              <div class="plan-price">
+                <span class="price-prefix">od</span>
+                999 zł
+                <span class="price-suffix">netto / mies.</span>
+              </div>
+            </div>
 
-          <ul class="plan-features">
-            <li>
-              <span class="feature-title">
-                Nielimitowane konsultacje podatkowe
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Szybkie, konkretne odpowiedzi mailowe
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Krótkie wskazówki, które pomagają podejmować codzienne decyzje bez ryzyka błędów.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Kompleksowa analiza podatkowa
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Sprawdzamy, jak możesz płacić mniej podatków, przygotowując symulacje oszczędności dla różnych
-                wariantów rozliczeń.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Wsparcie w założeniu jednoosobowej działalności
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Doradzamy formę opodatkowania i pomagamy w formalnościach.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Dostęp do bazy wiedzy i wzorów dokumentów
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Korzystasz z przygotowanych przez ekspertów procedur i pism.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Webinary, szkolenia i newslettery podatkowe
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami podatkowymi.</span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Zniżki na usługi spoza pakietu
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">Płacisz mniej za wsparcie wykraczające poza pakiet.</span>
-            </li>
-          </ul>
+            <div class="plan-divider"></div>
 
-          <div class="btn-wrapper">
-            <a href="#" class="btn">Wybieram pakiet</a>
-          </div>
-        </div>
+            <p class="plan-intro">
+              Pakiet Mentzen+ Prawo i Podatki zawiera wszystko to, co ma pakiet Mentzen+ Podatki oraz
+              dodatkowo:
+            </p>
 
-        <!-- Package 2 -->
-        <div class="plan-card">
-          <div class="plan-header">
-            <div class="plan-brand">MENTZEN+</div>
-            <div class="plan-name">PRAWO I PODATKI</div>
-            <div class="plan-price">
-              od 999 zł
-              <span class="price-suffix">netto / mies.</span>
+            <ul class="plan-features">
+              <li>
+                <span class="feature-title">
+                  Nielimitowane konsultacje prawne
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Comiesięczne audyty prawne
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Regularnie sprawdzamy, czy Twoja firma działa bezpiecznie i zgodnie z przepisami.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Jedno profesjonalne wezwanie do zapłaty z faktury w miesiącu
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Zwiększasz skuteczność odzyskiwania należności bez dodatkowych kosztów.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Rozszerzony dostęp do bazy wiedzy i wzorów dokumentów
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">
+                  Korzystasz z przygotowanych przez ekspertów umów, procedur i pism.
+                </span>
+              </li>
+              <li>
+                <span class="feature-title">
+                  Webinary, szkolenia i newslettery prawne
+                  <span class="info-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 16v-4"></path>
+                      <path d="M12 8h.01"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami w przepisach.</span>
+              </li>
+            </ul>
+
+            <div class="btn-wrapper">
+              <a href="#" class="btn">Wybieram pakiet</a>
             </div>
           </div>
-
-          <div class="plan-divider"></div>
-
-          <p class="plan-intro">
-            Pakiet Mentzen+ Prawo i Podatki zawiera wszystko to, co ma pakiet Mentzen+ Podatki oraz dodatkowo:
-          </p>
-
-          <ul class="plan-features">
-            <li>
-              <span class="feature-title">
-                Nielimitowane konsultacje prawne
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Możesz pytać o wszystko, kiedy tylko potrzebujesz, bez dodatkowych opłat.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Comiesięczne audyty prawne
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Regularnie sprawdzamy, czy Twoja firma działa bezpiecznie i zgodnie z przepisami.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Jedno profesjonalne wezwanie do zapłaty z faktury w miesiącu
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Zwiększasz skuteczność odzyskiwania należności bez dodatkowych kosztów.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Rozszerzony dostęp do bazy wiedzy i wzorów dokumentów
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">
-                Korzystasz z przygotowanych przez ekspertów umów, procedur i pism.
-              </span>
-            </li>
-            <li>
-              <span class="feature-title">
-                Webinary, szkolenia i newslettery prawne
-                <span class="info-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 16v-4"></path>
-                    <path d="M12 8h.01"></path>
-                  </svg>
-                </span>
-              </span>
-              <span class="feature-description">Jesteś na bieżąco z kluczowymi zmianami w przepisach.</span>
-            </li>
-          </ul>
-
-          <div class="btn-wrapper">
-            <a href="#" class="btn">Wybieram pakiet</a>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <script>
       (function () {
         const mobileQuery = window.matchMedia("(max-width: 768px)");
 
-        document.querySelectorAll(".plan-features li").forEach((item) => {
+        document.querySelectorAll(".mentzen-pricing-wrapper .plan-features li").forEach((item) => {
           // Click handler: works on mobile, also works on desktop as fallback
           item.addEventListener("click", () => {
             const isMobile = mobileQuery.matches;
@@ -626,9 +730,11 @@
 
         // Close all descriptions when switching between mobile/desktop modes
         mobileQuery.addEventListener("change", () => {
-          document.querySelectorAll(".plan-features li.description-visible").forEach((item) => {
-            item.classList.remove("description-visible");
-          });
+          document
+            .querySelectorAll(".mentzen-pricing-wrapper .plan-features li.description-visible")
+            .forEach((item) => {
+              item.classList.remove("description-visible");
+            });
         });
       })();
     </script>
